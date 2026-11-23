@@ -23,15 +23,6 @@ const nextConfig: NextConfig = {
       ],
     },
   ],
-  turbopack: {
-    // Tailwind CSS v4 — processes @import "tailwindcss" and @theme blocks.
-    rules: {
-      "*.css": {
-        loaders: ["@tailwindcss/turbopack"],
-        as: "*.css",
-      },
-    },
-  },
 };
 
 export default nextConfig;
