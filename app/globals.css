@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+/* ───────── PartyWatch theme ───────── */
+@theme inline {
+  --font-display: var(--font-unbounded), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-dm-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+@theme {
+  /* palette */
+  --color-night: #070726;
+  /* page background */
+  --color-indigo-deep: #1b1d8a;
+  /* gradient partner */
+  --color-ultraviolet: #6d5dfc;
+  /* brand */
+  --color-mint: #2ef2a0;
+  /* "in sync" / live accent */
+  --color-magenta: #ff4fd8;
+  /* warm accent */
+  --color-lilac: #e9e7ff;
+  /* body text */
+  --color-ink: #0d0d2b;
+  /* text on light buttons */
+
+  /* shape */
+  --radius-card: 3rem;
+  --radius-panel: 1.75rem;
+
+  /* motion */
+  --animate-marquee: marquee 30s linear infinite;
+
+  @keyframes marquee {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-night);
+  color: var(--color-lilac);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* star field (fixed layer, see layout.tsx) */
+.stars {
+  background-image:
+    radial-gradient(1.5px 1.5px at 20px 30px, #fffc, transparent),
+    radial-gradient(1px 1px at 120px 80px, #fff9, transparent),
+    radial-gradient(2px 2px at 220px 150px, #fffd, transparent),
+    radial-gradient(1px 1px at 310px 40px, #fff8, transparent),
+    radial-gradient(1.5px 1.5px at 70px 170px, #c9c4ff, transparent);
+  background-size: 340px 210px;
+}
+
+/* hero / section atmospheres */
+.bg-cosmos {
+  /* fades to night at both ends so it blends into the page (no hard edges) */
+  background:
+    radial-gradient(70% 55% at 85% 22%, #4a3ff0aa, transparent 70%),
+    radial-gradient(50% 40% at 8% 72%, #ff4fd826, transparent 70%),
+    linear-gradient(180deg, #070726 0%, #101080 45%, #070726 100%);
+}
+
+.font-display {
+  letter-spacing: -0.02em;
+}
+
+:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.4);
+  outline-offset: 2px;
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* ───────────────────────────────────────────────────────────────
+   APPEND THIS TO src/app/globals.css (below your existing @theme).
+   Room palette: Discord-style neutral greys + vivid blurple, no blue wash.
+─────────────────────────────────────────────────────────────── */
+@theme {
+  --color-dc-900: #070726;
+  /* darkest: rail, dock, page */
+  --color-dc-800: #0d0f1f;
+  /* panels, cards */
+  --color-dc-700: #12152b;
+  /* chat surface */
+  --color-dc-600: #1a1e38;
+  /* inputs, buttons */
+  --color-dc-500: #262c4f;
+  /* hover */
+  --color-blurple: #6d5dfc;
+  --color-blurple-hover: #5b4be8;
+  --color-dc-green: #2ef2a0;
+  --color-dc-red: #ff4fd8;
+  --color-dc-yellow: #f0b232;
+  --color-dc-pink: #ff4fd8;
+  --color-dc-text: #e9e7ff;
+  --color-dc-muted: #a3a6cb;
+  --color-dc-faint: #686c96;
+}
+
+/* Range sliders (seek + volume). Clean, subtle fill without harsh blue glows. */
+.pw-range {
+  appearance: none;
+  height: 4px;
+  border-radius: 9999px;
+  cursor: pointer;
+  outline: none;
+  background: linear-gradient(to right, #ffffff var(--pct, 0%), rgba(255, 255, 255, 0.15) var(--pct, 0%));
+}
+
+.pw-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 9999px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+  transition: transform 0.15s;
+}
+
+.pw-range::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border: 0;
+  border-radius: 9999px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.pw-range:hover::-webkit-slider-thumb {
+  transform: scale(1.2);
+}
+
+.pw-range:disabled {
+  cursor: not-allowed;
+  opacity: 0.35;
+}
+
+.pw-range:focus-visible {
+  outline: none;
+}

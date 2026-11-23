@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <defs>
+    <linearGradient id="pw-logo-g" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7a6bff" />
+      <stop offset="1" stop-color="#ff4fd8" />
+    </linearGradient>
+  </defs>
+  <rect width="48" height="48" rx="14" fill="url(#pw-logo-g)" />
+  <path d="M12 14v20l15-10z" fill="#fff" stroke="#fff" stroke-width="3" stroke-linejoin="round" />
+  <path d="M21 14v20l15-10z" fill="#2ef2a0" stroke="#4a3be0" stroke-width="6" stroke-linejoin="round" paint-order="stroke" />
+  <path d="M21 14v20l15-10z" fill="#2ef2a0" stroke="#2ef2a0" stroke-width="2" stroke-linejoin="round" />
+  <circle cx="38.5" cy="9.5" r="2.2" fill="#fff" />
+  <circle cx="9.5" cy="39" r="1.6" fill="#fff" fill-opacity=".8" />
+  <rect x="34" y="37" width="4" height="4" rx="1" fill="#ffe86b" transform="rotate(20 36 39)" />
+</svg>
