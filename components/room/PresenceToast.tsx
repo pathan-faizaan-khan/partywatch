@@ -59,7 +59,10 @@ export function PresenceToasts({ notifications }: { notifications: PresenceNotif
             )}
 
             {n.type === "info" && (
-              <span className="font-medium text-lilac/90">{n.message}</span>
+              <>
+                <span className="size-2 shrink-0 rounded-full bg-magenta animate-pulse" aria-hidden />
+                <span className="font-medium text-lilac/90">{n.message}</span>
+              </>
             )}
           </motion.div>
         ))}

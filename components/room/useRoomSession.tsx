@@ -350,6 +350,24 @@ export function useRoomSession({
               break;
             }
 
+            case "host_offline_warning": {
+              notify({
+                type: "info",
+                username: "Host",
+                message: payload?.message || "The host has disconnected. Room will close in 5 minutes if they don't return.",
+              });
+              break;
+            }
+
+            case "host_reconnected": {
+              notify({
+                type: "info",
+                username: "Host",
+                message: payload?.message || "The host has reconnected.",
+              });
+              break;
+            }
+
             case "room_closed": {
               alert(payload?.message || "The host ended the watch party.");
               routerRef.current.push("/lobby");
